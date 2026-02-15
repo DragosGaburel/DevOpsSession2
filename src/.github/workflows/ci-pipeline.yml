@@ -6,7 +6,16 @@ jobs:
     steps: 
       - name: Checkout repository 
         uses: actions/checkout@v3 
-      - name: Run a basic test 
-        run: echo "CI Pipeline Running!"
-      - name: Run tests 
-        run: bash test_script.sh
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Run tests
+        run: dotnet test tests/YourApp.Tests/YourApp.Tests.csproj --no-build --verbosity normal

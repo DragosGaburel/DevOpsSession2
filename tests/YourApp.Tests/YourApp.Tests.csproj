@@ -32,7 +32,7 @@
   
 
   <ItemGroup>
-    <ProjectReference Include="..\..\devopssession2.csproj" />
+    <ProjectReference Include="..\..\src\DevOpsSession2\DevOpsSession2.csproj" />
   </ItemGroup>
   
 
